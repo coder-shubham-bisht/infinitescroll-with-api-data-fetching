@@ -1,14 +1,21 @@
 import Image from "next/image";
 import { AspectRatio } from "./ui/aspect-ratio";
-import { typeOfAnimeSchema } from "@/actions/getUsers";
+import { typeOfAnimeSchema } from "@/actions/getAnime";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export default function AnimeCard({ anime }: { anime: typeOfAnimeSchema }) {
+export default function AnimeCard({
+  anime,
+  className,
+}: {
+  anime: typeOfAnimeSchema;
+  className?: string;
+}) {
   const { episodes, genres, image, synopsis, title, _id } = anime;
   return (
-    <div className="p-2 shadow-2xl gap-y-2 flex flex-col">
+    <div className={cn("p-2 shadow-2xl gap-y-2 flex flex-col", className)}>
       {/* anime poster */}
-      <Link href={`/${_id}`}>
+      <Link href={`/${_id}`} className="flex justify-center items-center">
         <div className="max-w-[300px] w-[300px] ">
           <AspectRatio ratio={16 / 9}>
             <Image
@@ -41,7 +48,7 @@ export default function AnimeCard({ anime }: { anime: typeOfAnimeSchema }) {
         <span>{episodes}</span>
       </p>
       {/* genere */}
-      <p>
+      <p className="flex items-center flex-wrap">
         <span className="capitalize font-bold">generes:</span>
 
         {genres.map((genre) => (

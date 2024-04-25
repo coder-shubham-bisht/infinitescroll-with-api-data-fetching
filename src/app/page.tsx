@@ -1,4 +1,4 @@
-import { getAllAnime } from "@/actions/getUsers";
+import { getAllAnime } from "@/actions/getAnime";
 import UserList from "@/components/UserList";
 
 const INITIAL_NUMBER_OF_USERS = 10;

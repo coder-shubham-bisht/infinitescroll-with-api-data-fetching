@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getAllAnime, typeOfAnimeSchema } from "@/actions/getUsers";
+import { getAllAnime, typeOfAnimeSchema } from "@/actions/getAnime";
 import { useInView } from "react-intersection-observer";
 import AnimeCard from "./AnimeCard";
 
