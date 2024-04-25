@@ -45,7 +45,9 @@ export default function AnimeCard({ anime }: { anime: typeOfAnimeSchema }) {
         <span className="capitalize font-bold">generes:</span>
 
         {genres.map((genre) => (
-          <span className="text-sm">{genre + ","}</span>
+          <span className="text-sm" key={genre}>
+            {genre + ","}
+          </span>
         ))}
       </p>
     </div>
