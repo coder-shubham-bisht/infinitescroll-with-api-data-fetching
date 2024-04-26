@@ -1,10 +1,13 @@
 import { getAllAnime } from "@/actions/getAnime";
 import UserList from "@/components/UserList";
 
-const INITIAL_NUMBER_OF_USERS = 10;
-
+const INITIAL_SIZE_OF_ANIME_LIST = 10;
+const INITIAL_PAGE_NO = 1;
 export default async function Home() {
-  const initialAnimes = await getAllAnime(1, INITIAL_NUMBER_OF_USERS);
+  const initialAnimes = await getAllAnime(
+    INITIAL_PAGE_NO,
+    INITIAL_SIZE_OF_ANIME_LIST
+  );
 
   return (
     <>

@@ -4,14 +4,14 @@ import { getAllAnime, typeOfAnimeSchema } from "@/actions/getAnime";
 import { useInView } from "react-intersection-observer";
 import AnimeCard from "./AnimeCard";
 
-const NUMBER_OF_USERS_TO_FETCH = 10;
+const SIZE_OF_ANIME_LIST = 10;
 export default function UserList({
   initialAnimes,
 }: {
   initialAnimes: typeOfAnimeSchema[];
 }) {
   const [animes, setAnimes] = useState(initialAnimes);
-  const [offset, setOffset] = useState(NUMBER_OF_USERS_TO_FETCH);
+  const [page, setPage] = useState(2);
   const { ref, inView } = useInView();
 
   useEffect(() => {
@@ -20,9 +20,9 @@ export default function UserList({
     }
   }, [inView]);
   const loadMoreUsers = async () => {
-    const apiAnimes = await getAllAnime(offset, NUMBER_OF_USERS_TO_FETCH);
+    const apiAnimes = await getAllAnime(page, SIZE_OF_ANIME_LIST);
     setAnimes([...animes, ...apiAnimes]);
-    setOffset(offset + NUMBER_OF_USERS_TO_FETCH);
+    setPage(page + 1);
   };
 
   return (

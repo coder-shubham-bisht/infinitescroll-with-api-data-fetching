@@ -11,9 +11,10 @@ const animeSchema = z.object({
 });
 const arrayOfAnimeSchema = z.array(animeSchema);
 export type typeOfAnimeSchema = z.infer<typeof animeSchema>;
-export const getAllAnime = async (offset: number, limit: number) => {
+
+export const getAllAnime = async (page: number, size: number) => {
   try {
-    const url = `https://anime-db.p.rapidapi.com/anime?page=${offset}&size=${limit}&sortBy=ranking&sortOrder=asc`;
+    const url = `https://anime-db.p.rapidapi.com/anime?page=${page}&size=${size}&sortBy=ranking&sortOrder=asc`;
     const options = {
       method: "GET",
       headers: {
@@ -23,6 +24,7 @@ export const getAllAnime = async (offset: number, limit: number) => {
     };
     const response = await fetch(url, options);
     const data = await response.json();
+    console.log(data);
 
     const validatedData = arrayOfAnimeSchema.safeParse(data.data);
     if (validatedData.success) {
