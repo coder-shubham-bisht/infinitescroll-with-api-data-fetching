@@ -4,7 +4,7 @@ import { getAllAnime, typeOfAnimeSchema } from "@/actions/getAnime";
 import { useInView } from "react-intersection-observer";
 import AnimeCard from "./AnimeCard";
 
-const SIZE_OF_ANIME_LIST = 10;
+const SIZE_OF_ANIME_LIST = 9;
 export default function UserList({
   initialAnimes,
 }: {
@@ -55,7 +55,6 @@ export default function UserList({
         </svg>
         <span className="sr-only">Loading...</span>
       </div>
-      {/* <button onClick={loadMoreUsers}>Load more</button> */}
     </>
   );
 }

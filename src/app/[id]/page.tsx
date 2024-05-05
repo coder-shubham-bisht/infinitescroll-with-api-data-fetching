@@ -1,9 +1,19 @@
 import { getAnimeById } from "@/actions/getAnime";
 import Image from "next/image";
-import Link from "next/link";
+import { Metadata } from "next";
 
-const AnimePage = async ({ params }: { params: { id: string } }) => {
-  console.log(params);
+type Props = {
+  params: { id: string };
+};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const anime = await getAnimeById(params.id);
+  return {
+    title: anime.title,
+    description: anime.synopsis,
+  };
+}
+
+const AnimePage = async ({ params }: Props) => {
   const anime = await getAnimeById(params.id);
   const { _id, episodes, genres, image, synopsis, title } = anime;
   return (

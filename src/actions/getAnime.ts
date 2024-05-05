@@ -24,7 +24,6 @@ export const getAllAnime = async (page: number, size: number) => {
     };
     const response = await fetch(url, options);
     const data = await response.json();
-    console.log(data);
 
     const validatedData = arrayOfAnimeSchema.safeParse(data.data);
     if (validatedData.success) {

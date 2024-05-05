@@ -13,10 +13,15 @@ export default function AnimeCard({
 }) {
   const { episodes, genres, image, synopsis, title, _id } = anime;
   return (
-    <div className={cn("p-2 shadow-2xl gap-y-2 flex flex-col", className)}>
+    <div
+      className={cn(
+        "p-2 shadow-sm  gap-y-2 flex flex-col rounded-lg shadow-white",
+        className
+      )}
+    >
       {/* anime poster */}
       <Link href={`/${_id}`} className="flex justify-center items-center">
-        <div className="max-w-[300px] w-[300px] ">
+        <div className=" w-[300px] ">
           <AspectRatio ratio={16 / 9}>
             <Image
               src={image}
@@ -28,7 +33,7 @@ export default function AnimeCard({
         </div>
       </Link>
       {/* title */}
-      <p>
+      <p className="flex gap-2">
         <span className="capitalize font-bold">title:</span>
 
         <span>{title}</span>
@@ -43,12 +48,12 @@ export default function AnimeCard({
         </Link>
       </p>
       {/* episodes */}
-      <p>
+      <p className="flex gap-2">
         <span className="capitalize font-bold">episodes:</span>
         <span>{episodes}</span>
       </p>
       {/* genere */}
-      <p className="flex items-center flex-wrap">
+      <p className="flex items-center flex-wrap gap-2">
         <span className="capitalize font-bold">generes:</span>
 
         {genres.map((genre) => (
