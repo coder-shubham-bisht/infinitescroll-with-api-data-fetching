@@ -27,24 +27,24 @@ const AnimePage = async ({ params }: Props) => {
         />
       </div>
       {/* title */}
-      <p>
+      <p className="flex gap-2">
         <span className="capitalize font-bold">title:</span>
 
         <span>{title}</span>
       </p>
       {/* description */}
-      <p>
+      <p className="flex flex-col">
         <span className="capitalize font-bold">description:</span>
 
         <span>{synopsis}</span>
       </p>
       {/* episodes */}
-      <p>
+      <p className="flex gap-2">
         <span className="capitalize font-bold">episodes:</span>
         <span>{episodes}</span>
       </p>
       {/* genere */}
-      <p className="flex items-center flex-wrap">
+      <p className="flex items-center flex-wrap gap-2">
         <span className="capitalize font-bold">generes:</span>
 
         {genres.map((genre) => (
